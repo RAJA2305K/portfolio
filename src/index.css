@@ -17,9 +17,19 @@
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 
+  --section-padding-y: 8rem;
+  --section-padding-x: 2rem;
+
   font-size: 16px;
   background-color: var(--background);
   color: var(--foreground);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: 4rem;
+    --section-padding-x: 1.5rem;
+  }
 }
 
 * {
@@ -38,6 +48,7 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
   position: relative;
+  padding-bottom: 80px; /* Space for the fixed bottom navbar */
 }
 
 body::before {
@@ -141,18 +152,211 @@ ul {
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 8rem 2rem;
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.mobile-only {
+  display: none;
 }
 
 @media (max-width: 768px) {
-  .section-container {
-    padding: 4rem 1.5rem;
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
   }
 }
 
 .dot-grid {
   background-image: radial-gradient(circle, var(--glass-border) 1px, transparent 1px);
   background-size: 30px 30px;
+}
+
+/* Hero Grid */
+.hero-grid {
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding-top: 6rem;
+    text-align: center;
+  }
+  
+  .hero-grid > div:first-child {
+    order: 2;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .hero-grid > div:last-child {
+    order: 1;
+  }
+  
+  .profile-card-container {
+    width: 280px !important;
+    height: 350px !important;
+  }
+}
+
+/* Bento Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    --card-span: span 1 !important;
+    --card-height-lg: 400px;
+    --card-height-md: 300px;
+  }
+}
+
+/* Navbar Responsive */
+.navbar-container {
+  gap: 0.8rem;
+}
+
+.nav-item-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    gap: 0.4rem;
+    padding: 0.4rem !important;
+  }
+  
+  .nav-item-btn {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  
+  .nav-icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+
+/* About Grid */
+.about-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem !important;
+  }
+}
+
+/* Project Modal Responsive */
+.modal-header {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-body {
+  padding: 4rem;
+}
+
+.project-modal-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+}
+
+@media (max-width: 768px) {
+  .modal-header {
+    height: 250px;
+  }
+  
+  .modal-body {
+    padding: 2rem 1.5rem;
+  }
+  
+  .modal-title-wrapper {
+    bottom: 2rem !important;
+    left: 2rem !important;
+    right: 2rem !important;
+  }
+  
+  .modal-header button {
+    top: 1rem !important;
+    right: 1rem !important;
+  }
+  
+  .project-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .project-modal-grid h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  .project-modal-grid p {
+    font-size: 1.05rem !important;
+  }
+}
+
+/* Skills Grid */
+.skills-grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  .skills-grid > div {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.contact-form-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .social-notch-container, .social-links-container {
+    display: none !important; /* Hide on mobile to avoid overlap */
+  }
 }
 
 /* Social Notch Tooltips */

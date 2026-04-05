@@ -8,8 +8,6 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
 import ProjectModal from './components/ProjectModal';
-import SocialLinks from './components/SocialLinks';
-import SocialNotch from './components/SocialNotch';
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -18,7 +16,6 @@ function App() {
     <main style={{ position: 'relative' }}>
       <div className="mesh-gradient" />
       <CustomCursor />
-      <SocialLinks />
       <Navbar />
       
       <div className="section-wrapper">

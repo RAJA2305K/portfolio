@@ -46,10 +46,9 @@ const Navbar = () => {
         zIndex: 1000,
       }}
     >
-      <div className="glass preserve-3d" style={{
+      <div className="glass preserve-3d navbar-container" style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '0.8rem',
         padding: '0.6rem',
         borderRadius: '2.5rem',
         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
@@ -66,12 +65,11 @@ const Navbar = () => {
               }}
               whileTap={{ scale: 0.9 }}
               onClick={() => scrollToSection(item.id)}
+              className="nav-item-btn"
               style={{
                 background: 'rgba(255, 255, 255, 0.05)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
                 color: 'white',
-                width: '3.5rem',
-                height: '3.5rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -80,7 +78,7 @@ const Navbar = () => {
                 transformStyle: 'preserve-3d',
               }}
             >
-              <item.icon size={22} strokeWidth={2} />
+              <item.icon className="nav-icon" size={22} strokeWidth={2} />
               
               {/* Dynamic Glow */}
               <motion.div

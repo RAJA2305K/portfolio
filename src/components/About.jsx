@@ -29,9 +29,9 @@ const About = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
+        className="about-grid"
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '4rem',
           alignItems: 'center',
         }}

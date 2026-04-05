@@ -94,19 +94,20 @@ const ProjectCard = ({ project, index, onClick }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={() => onClick(project)}
-      className="glass preserve-3d"
+      className="glass preserve-3d project-card"
       style={{
-        gridColumn: project.size === 'large' ? 'span 2' : 'span 1',
-        gridRow: project.size === 'large' ? 'span 2' : 'span 1',
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
         overflow: 'hidden',
-        minHeight: project.size === 'large' ? '500px' : '350px',
         cursor: 'pointer',
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
+        '--card-span': project.size === 'large' ? 'span 2' : 'span 1',
+        gridColumn: 'var(--card-span)',
+        gridRow: 'var(--card-span)',
+        minHeight: project.size === 'large' ? 'var(--card-height-lg, 500px)' : 'var(--card-height-md, 350px)',
       }}
     >
       {/* Glare/Shine effect */}
@@ -268,12 +269,13 @@ const BentoGrid = ({ onProjectClick }) => {
         </p>
       </motion.div>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-        gridAutoRows: 'minmax(350px, auto)',
-        gap: '2.5rem',
-      }}>
+      <div 
+        className="projects-grid"
+        style={{
+          display: 'grid',
+          gap: '2.5rem',
+        }}
+      >
         {projects.map((project, index) => (
           <ProjectCard 
             key={index} 

@@ -79,13 +79,11 @@ const Hero = () => {
         zIndex: 0,
       }} />
 
-      <div className="section-container" style={{ 
+      <div className="section-container hero-grid" style={{ 
         position: 'relative', 
         zIndex: 1, 
         width: '100%',
         display: 'grid',
-        gridTemplateColumns: '1.2fr 1fr',
-        gap: '4rem',
         alignItems: 'center',
       }}>
         {/* Left Column: Text Content */}
@@ -232,6 +230,7 @@ const Hero = () => {
           }}
         >
           <motion.div
+            className="profile-card-container"
             style={{
               width: '400px',
               height: '500px',

@@ -52,11 +52,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             }}
           >
             {/* Header / Banner / Image */}
-            <div style={{
-              height: '400px',
-              position: 'relative',
-              overflow: 'hidden',
-            }}>
+            <div className="modal-header">
                <motion.img 
                  initial={{ scale: 1.1 }}
                  animate={{ scale: 1 }}
@@ -79,13 +75,13 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                  onClick={onClose}
                  style={{
                    position: 'absolute',
-                   top: '2rem',
-                   right: '2rem',
+                   top: '1.5rem',
+                   right: '1.5rem',
                    background: 'rgba(255, 255, 255, 0.1)',
                    border: '1px solid rgba(255, 255, 255, 0.2)',
                    borderRadius: '50%',
-                   width: '45px',
-                   height: '45px',
+                   width: '40px',
+                   height: '40px',
                    display: 'flex',
                    alignItems: 'center',
                    justifyContent: 'center',
@@ -95,14 +91,14 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                    zIndex: 10,
                  }}
                >
-                 <X size={24} />
+                 <X size={20} />
                </button>
                
-               <div style={{
+               <div className="modal-title-wrapper" style={{
                  position: 'absolute',
-                 bottom: '3rem',
-                 left: '3rem',
-                 right: '3rem',
+                 bottom: '2.5rem',
+                 left: '2.5rem',
+                 right: '2.5rem',
                }}>
                  <motion.span 
                    initial={{ opacity: 0, x: -20 }}
@@ -127,7 +123,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                    initial={{ opacity: 0, y: 20 }}
                    animate={{ opacity: 1, y: 0 }}
                    transition={{ delay: 0.3 }}
-                   style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', color: 'white', fontWeight: 900, lineHeight: 1.1 }}
+                   style={{ fontSize: 'clamp(2rem, 6vw, 4rem)', color: 'white', fontWeight: 900, lineHeight: 1.1 }}
                  >
                    {project.title}
                  </motion.h2>
@@ -135,8 +131,8 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
             </div>
 
             {/* Body */}
-            <div style={{ padding: '4rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '5rem' }}>
+            <div className="modal-body">
+              <div className="project-modal-grid">
                 {/* Left Column */}
                 <div>
                   <h3 style={{ fontSize: '1.75rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', fontWeight: 800 }}>

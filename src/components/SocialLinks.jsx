@@ -29,6 +29,7 @@ const socialLinks = [
 const SocialLinks = () => {
   return (
     <motion.div
+      className="social-links-container"
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: 1, duration: 0.8, type: 'spring' }}
