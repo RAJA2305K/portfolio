@@ -80,6 +80,21 @@ const ProjectCard = ({ project, index, onClick }) => {
     y.set(yPct);
   };
 
+  const handleTouchMove = (e) => {
+    if (e.touches && e.touches.length > 0) {
+      const touch = e.touches[0];
+      const rect = e.currentTarget.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
+      const touchX = touch.clientX - rect.left;
+      const touchY = touch.clientY - rect.top;
+      const xPct = touchX / width - 0.5;
+      const yPct = touchY / height - 0.5;
+      x.set(xPct);
+      y.set(yPct);
+    }
+  };
+
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
@@ -93,6 +108,8 @@ const ProjectCard = ({ project, index, onClick }) => {
       transition={{ delay: index * 0.1, duration: 0.6 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleMouseLeave}
       onClick={() => onClick(project)}
       className="glass preserve-3d project-card"
       style={{

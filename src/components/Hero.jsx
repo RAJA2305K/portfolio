@@ -22,6 +22,17 @@ const Hero = () => {
     mouseY.set(y);
   };
 
+  const handleTouchMove = (e) => {
+    if (e.touches && e.touches.length > 0) {
+      const touch = e.touches[0];
+      const rect = e.currentTarget.getBoundingClientRect();
+      const xVal = touch.clientX - rect.left - rect.width / 2;
+      const yVal = touch.clientY - rect.top - rect.height / 2;
+      mouseX.set(xVal);
+      mouseY.set(yVal);
+    }
+  };
+
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
@@ -219,6 +230,8 @@ const Hero = () => {
         <motion.div
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleMouseLeave}
           style={{
             position: 'relative',
             perspective: '1000px',
